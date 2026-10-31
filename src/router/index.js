@@ -29,11 +29,13 @@ const routes = [
     name: "traditions-culture",
     component: () => import("../views/TraditionsView.vue"),
   },
+  */
   {
     path: "/about",
     name: "about",
     component: () => import("../views/AboutView.vue"),
   },
+  /*
   {
     path: "/article/:id",
     name: "article",
@@ -68,6 +70,11 @@ const routes = [
     component: () => import("../views/admin/EditView.vue"),
     meta: { requiresAuth: true },
   },*/
+  {
+    path: "/:pathMatch(.*)",
+    name: "not-found",
+    component: () => import("../views/ErrorView.vue"),
+  },
 ];
 
 const router = createRouter({
