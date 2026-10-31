@@ -8,7 +8,7 @@ const routes = [
     name: "home",
     component: HomeView,
   },
-  {
+  /*{
     path: "/our-story",
     name: "our-story",
     component: () => import("../views/OurStoryView.vue"),
@@ -66,7 +66,7 @@ const routes = [
     name: "admin-edit",
     component: () => import("../views/admin/EditView.vue"),
     meta: { requiresAuth: true },
-  },
+  },*/
 ];
 
 const router = createRouter({
