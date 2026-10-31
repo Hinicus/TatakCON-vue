@@ -1,6 +1,6 @@
 <!-- src/views/HomeView.vue -->
 <template>
-  <div class="flex flex-col w-full">
+  <div class="flex flex-col w-full mt-5">
     <!-- Section 1: Top Ambient Banner & Welcome Stage -->
     <section
       class="relative w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin pt-space-xl md:pt-space-2xl pb-space-2xl md:pb-space-3xl overflow-hidden">
