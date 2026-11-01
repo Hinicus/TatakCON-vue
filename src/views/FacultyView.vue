@@ -71,6 +71,16 @@
             Organization Advisers
           </a>
         </div>
+
+        <div
+          class="inline-flex items-center gap-space-xs bg-white/10 ring-1 ring-white/15 px-space-md py-1.5 rounded-full text-white backdrop-blur-sm shadow-sm mt-space-md">
+          <span class="material-symbols-outlined text-[18px] text-clear-skies"
+            >calendar_month</span
+          >
+          <span class="font-label-sm text-label-sm font-medium text-white"
+            >Academic Year 2026–2027</span
+          >
+        </div>
       </div>
     </section>
 
