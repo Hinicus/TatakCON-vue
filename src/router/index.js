@@ -34,12 +34,11 @@ const routes = [
     name: "about",
     component: () => import("../views/AboutView.vue"),
   },
-  /*
   {
     path: "/article/:id",
     name: "article",
     component: () => import("../views/ArticleView.vue"),
-  },
+  } /*
   // --- Admin Portal Routes ---
   {
     path: "/admin/login",
@@ -68,7 +67,7 @@ const routes = [
     name: "admin-edit",
     component: () => import("../views/admin/EditView.vue"),
     meta: { requiresAuth: true },
-  },*/
+  },*/,
   {
     path: "/:pathMatch(.*)",
     name: "not-found",
