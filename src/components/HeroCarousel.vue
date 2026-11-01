@@ -115,18 +115,17 @@ const slides = [
       "transform: scale(1.28) translateY(-11%); transform-origin: center center;",
   },
   {
-    src: "/images/traditions-culture/para-sa-masa-1.jpg",
-    alt: "CONlympics Clinical Training",
-    title: "Clinical Skills & Simulation",
-    subtitle: "Excellence in Hands-On Nursing Training",
-    icon: "medical_services",
+    src: "/images/hero-carousel/candlelight.jpg",
+    alt: "Candlelighting",
+    title: "21ST Capping, Pinning, and Candle Lighting Ceremony",
+    icon: "candle",
   },
   {
-    src: "/images/con-org-logo/college-of-nursing.jpg",
-    alt: "Community Outreach",
-    title: "Community Health & Outreach",
-    subtitle: "Compassionate Service Beyond Campus Walls",
-    icon: "volunteer_activism",
+    src: "/images/hero-carousel/send-off-future-RN.jpg",
+    alt: "Send-Off Mass for Future RNs",
+    title: "Send-Off Mass for Future RNs",
+    subtitle: "Heart of Jesus and Mary Parish Church, Malolos",
+    icon: "church",
   },
 ];
 
