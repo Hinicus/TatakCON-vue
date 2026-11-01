@@ -248,10 +248,6 @@
               Coordinators &amp; Officers
             </h2>
           </div>
-          <p class="text-xs sm:text-sm text-on-surface-variant max-w-md">
-            Grouped by academic, clinical, research, student services,
-            communications, and institutional ethics functions.
-          </p>
         </div>
 
         <!-- Loop Through Functional Clusters -->
