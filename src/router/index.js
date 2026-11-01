@@ -13,7 +13,7 @@ const routes = [
     name: "our-story",
     component: () => import("../views/OurStoryView.vue"),
   },
-  /*
+
   {
     path: "/con-community",
     name: "con-community",
@@ -29,7 +29,6 @@ const routes = [
     name: "traditions-culture",
     component: () => import("../views/TraditionsView.vue"),
   },
-  */
   {
     path: "/about",
     name: "about",

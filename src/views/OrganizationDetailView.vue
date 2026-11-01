@@ -3,9 +3,12 @@
   <div v-if="org" class="w-full flex-grow bg-surface">
     <!-- Hero Header Banner -->
     <section
-      class="relative bg-gradient-to-b from-[#0A172C] via-[#12284B] to-[#16335F] text-white py-12 lg:py-16 px-margin-mobile md:px-margin-tablet lg:px-margin border-b-4 border-secondary overflow-hidden">
+      class="relative bg-gradient-to-b from-[#0A172C] via-[#12284B] to-[#16335F] text-white py-12 lg:py-16 px-margin-mobile md:px-margin-tablet lg:px-margin border-b-4 overflow-hidden"
+      :class="heroBorderClass">
+      <!-- Decorative Radial Glow -->
       <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-secondary/25 via-transparent to-transparent pointer-events-none"></div>
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] via-transparent to-transparent pointer-events-none"
+        :class="heroGlowClass"></div>
       <div
         class="absolute -right-20 -top-24 w-96 h-96 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
       <div
@@ -62,7 +65,8 @@
 
         <!-- Eyebrow Subtitle -->
         <div
-          class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary/60 border border-clear-skies/40 text-tertiary-fixed-dim text-xs font-bold tracking-widest uppercase mb-3 shadow-inner">
+          class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-3 shadow-inner"
+          :class="heroPillClass">
           <span class="material-symbols-outlined text-[16px]">{{
             org.heroEyebrowIcon
           }}</span>
@@ -75,7 +79,10 @@
           {{ org.name }}
         </h1>
         <p
-          class="font-headline-sm text-lg sm:text-xl text-clear-skies font-medium tracking-wide mb-5 max-w-2xl font-serif italic">
+          class="font-headline-sm text-lg sm:text-xl font-medium tracking-wide mb-5 max-w-2xl font-serif italic"
+          :class="
+            org.theme === 'error' ? 'text-error-container' : 'text-clear-skies'
+          ">
           {{ org.subtitle }}
         </p>
 
@@ -99,7 +106,8 @@
           class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-surface-variant pb-4 gap-2">
           <div>
             <div
-              class="flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-secondary">
+              class="flex items-center gap-2 text-xs font-bold tracking-wider uppercase"
+              :class="accentTextClass">
               <span class="material-symbols-outlined text-[18px]">{{
                 sec.eyebrowIcon
               }}</span>
@@ -112,7 +120,7 @@
           </div>
         </div>
 
-        <!-- Groups within each section (e.g., Top 2 Executive row + 3-col Managing row) -->
+        <!-- Groups within each section -->
         <div
           v-for="(group, gIdx) in sec.groups"
           :key="gIdx"
@@ -120,9 +128,9 @@
           :class="group.gridClass">
           <div
             v-for="member in group.members"
-            :key="member.name"
+            :key="`${member.name}-${member.role}`"
             class="bg-surface-container-lowest rounded-2xl overflow-hidden transition-all duration-300 flex flex-col group"
-            :class="cardBorderClass(member.variant)">
+            :class="[cardBorderClass(member.variant), member.cardClass || '']">
             <div
               class="aspect-[4/4] w-full overflow-hidden bg-surface-container relative">
               <img
@@ -151,12 +159,18 @@
               ]">
               <div>
                 <p
-                  class="text-xs font-bold text-secondary uppercase tracking-wider mb-1">
+                  class="text-xs font-bold uppercase tracking-wider mb-1"
+                  :class="accentTextClass">
                   {{ member.role }}
                 </p>
                 <h3
-                  class="font-headline-sm font-bold text-primary group-hover:text-secondary transition-colors leading-snug font-serif"
-                  :class="member.variant ? 'text-xl' : 'text-lg'">
+                  class="font-headline-sm font-bold text-primary transition-colors leading-snug font-serif"
+                  :class="[
+                    member.variant ? 'text-xl' : 'text-lg',
+                    org.theme === 'error'
+                      ? 'group-hover:text-error'
+                      : 'group-hover:text-secondary',
+                  ]">
                   {{ member.name }}
                 </h3>
                 <p
@@ -165,7 +179,8 @@
                   :class="{ 'justify-center': member.centered }">
                   <span
                     v-if="member.subtextIcon"
-                    class="material-symbols-outlined text-[15px] text-secondary"
+                    class="material-symbols-outlined text-[15px]"
+                    :class="accentTextClass"
                     >{{ member.subtextIcon }}</span
                   >
                   {{ member.subtext }}
@@ -181,7 +196,12 @@
         class="bg-surface-container-lowest rounded-3xl p-8 sm:p-10 shadow-sm border border-secondary-fixed/50 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
         <div class="space-y-4 lg:col-span-2">
           <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold tracking-wide uppercase">
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase"
+            :class="
+              org.theme === 'error'
+                ? 'bg-error-container text-on-error-container'
+                : 'bg-secondary-fixed text-on-secondary-fixed'
+            ">
             <span class="material-symbols-outlined text-[16px]">{{
               org.aboutBadgeIcon
             }}</span>
@@ -273,21 +293,70 @@ const org = computed(() =>
   organizations.find((item) => item.slug === route.params.slug),
 );
 
+const accentTextClass = computed(() =>
+  org.value?.theme === "error" ? "text-error" : "text-secondary",
+);
+
+const heroBorderClass = computed(() => {
+  if (org.value?.theme === "error") return "border-error";
+  if (org.value?.theme === "primary") return "border-primary";
+  if (org.value?.theme === "cortex") return "border-secondary-fixed";
+  return "border-secondary";
+});
+
+const heroGlowClass = computed(() => {
+  if (org.value?.theme === "error") return "from-error/20";
+  if (org.value?.theme === "primary") return "from-primary/30";
+  if (org.value?.theme === "cortex") return "from-secondary-fixed/25";
+  return "from-secondary/25";
+});
+
+const heroPillClass = computed(() => {
+  if (org.value?.theme === "error") {
+    return "bg-error/80 border border-error-container/40 text-white";
+  }
+  if (org.value?.theme === "primary") {
+    return "bg-primary/60 border border-clear-skies/40 text-tertiary-fixed-dim";
+  }
+  if (org.value?.theme === "cortex") {
+    return "bg-secondary-fixed/80 border border-secondary-fixed/40 text-on-secondary-fixed";
+  }
+  return "bg-secondary/60 border border-clear-skies/40 text-tertiary-fixed-dim";
+});
+
 function cardBorderClass(variant) {
+  const isError = org.value?.theme === "error";
+  const isPrimary = org.value?.theme === "primary";
+
   if (variant === "head") {
+    if (isError) return "shadow-md border-2 border-error hover:shadow-lg";
+    if (isPrimary) return "shadow-md border-2 border-primary hover:shadow-lg";
     return "shadow-md border-2 border-secondary hover:shadow-lg";
   }
   if (variant === "vice") {
+    if (isError) {
+      return "shadow-md border-2 border-error-container hover:border-error hover:shadow-lg";
+    }
     return "shadow-md border-2 border-clear-skies hover:border-secondary hover:shadow-lg";
   }
   if (variant === "adviser") {
-    return "shadow-sm border-2 border-secondary-fixed hover:border-secondary hover:shadow-md";
+    return isError
+      ? "shadow-sm border-2 border-secondary-fixed hover:border-error hover:shadow-md"
+      : "shadow-sm border-2 border-secondary-fixed hover:border-secondary hover:shadow-md";
   }
-  return "shadow-sm border border-surface-variant/60 hover:border-secondary hover:shadow-md";
+  return isError
+    ? "shadow-sm border border-surface-variant/60 hover:border-error hover:shadow-md"
+    : "shadow-sm border border-surface-variant/60 hover:border-secondary hover:shadow-md";
 }
 
 function tagBadgeClass(variant) {
   if (variant === "head") {
+    if (org.value?.theme === "error") {
+      return "px-3 py-1 bg-error text-white shadow-sm";
+    }
+    if (org.value?.theme === "primary") {
+      return "px-3 py-1 bg-primary text-white shadow-sm";
+    }
     return "px-3 py-1 bg-secondary text-white shadow-sm";
   }
   if (variant === "vice" || variant === "adviser") {

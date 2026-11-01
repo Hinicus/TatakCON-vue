@@ -5,6 +5,23 @@ import { leadership, groups } from "@/data/researchers.js";
 
 <template>
   <section id="researchers" class="scroll-mt-28 space-y-12">
+    <div
+      class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-surface-variant pb-4 gap-2">
+      <div>
+        <span
+          class="font-caption text-caption uppercase tracking-wider text-secondary font-bold"
+          >ARP Group Project Roles</span
+        >
+        <h2
+          class="font-headline-lg text-2xl sm:text-3xl font-bold text-primary font-serif mt-0.5">
+          Researchers &amp; Project Staff
+        </h2>
+      </div>
+      <span
+        class="px-space-md py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm self-start sm:self-auto font-bold"
+        >Bachelor of Public Administration</span
+      >
+    </div>
     <div class="space-y-6">
       <div
         class="flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-secondary">
