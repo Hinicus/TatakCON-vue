@@ -183,25 +183,17 @@
               </div>
               <h3
                 class="font-headline-md text-headline-md text-primary mb-space-xs">
-                Why does this matter?
+                Bakit ito mahalaga?
               </h3>
               <p class="font-body-md text-body-md text-on-surface-variant">
-                Nursing extends far outside lecture theatres and hospital walls.
-                Our graduates embody holistic practice in mobile rural outreach,
-                ICU rapid-response, clinical research laboratories, and global
-                disaster operations.
+                Ang pag-nars at ang buhay-estudyante ay lumalampas sa mga
+                silid-aralan at pader ng ospital. Sinasalamin ng ating mga
+                Isko-Nars ang katatagan sa gitna ng pagbabago ng espasyo at
+                internal na diaspora—mula sa mga komunidad hanggang sa mga ward
+                at laboratoryo—na nagpapatunay ng ating malasakit sa bayan.
               </p>
             </div>
           </div>
-          <router-link
-            to="/about"
-            class="shrink-0 inline-flex items-center gap-space-sm px-space-xl py-space-sm rounded-full bg-secondary text-on-secondary font-label-md text-label-md hover:bg-primary-container transition-all group shadow-sm">
-            <span>Read Institutional Vision</span>
-            <span
-              class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform"
-              >arrow_forward</span
-            >
-          </router-link>
         </div>
         <div
           class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-secondary-fixed-dim/30 blur-3xl pointer-events-none"></div>
@@ -373,7 +365,7 @@ const directoryCards = [
     title: "Our Story & Heritage",
     subtitle: "Institutional History",
     description:
-      "Trace the evolution of the BulSU College of Nursing—from its pioneering cohort of 200 student nurses in 2004 to its prestigious AACCUP Level IV Re-Accredited status today.",
+      "Tuntonin ang ebolusyon ng BulSU College of Nursing—mula sa kanilang unang pangkat ng 200 na mag-aaral ng nars noong 2004 hanggang sa kanilang prestihiyosong estadong AACUP Level IV Re-Accredited sa kasalukuyan.",
     cta: "Read History",
   },
   {
@@ -381,8 +373,10 @@ const directoryCards = [
     icon: "groups",
     title: "CON Community",
     subtitle: "Accredited Councils & Guilds",
-    description:
-      "Discover the vibrant ecosystem of student leadership. Explore the 8 official councils, academic societies, and cultural guilds shaping advocacy and clinical excellence beyond the walls.",
+    description: `Tuklasin ang masiglang sistema ng pamumuno ng mga mag-aaral.
+    Alamin ang 8 opisyal na konseho, akademikong lipunan, at
+    cultural guilds na humuhubog sa adbokasiya at kahusayang
+    klinikal lampas sa mga pader ng paaralan.`,
     cta: "View Directory",
   },
   {
@@ -390,8 +384,7 @@ const directoryCards = [
     icon: "military_tech",
     title: "Traditions & Culture",
     subtitle: "Ceremonies & Rites",
-    description:
-      "Honor the collegiate legacy of the Isko-Nars. From the symbolic lighting of the Florence Nightingale Lamp to intense clinical skill showdowns, explore the lived spirit of the nursing cohort.",
+    description: `Parangalan ang kolektibong pamana ng mga Isko-Nars. Mula sa simbolikong pagsisindi ng Florence Nightingale Lamp hanggang sa mga madamdaming paligsahan sa kakayahang klinikal, tuklasin ang buhay na diwa ng pangkat ng mga nars.`,
     cta: "Explore Traditions",
   },
   {
@@ -400,8 +393,8 @@ const directoryCards = [
     title: "The #TatakCON Project",
     subtitle: "Academic & Spatial Transition Study",
     description:
-      "An empirical research initiative and digital repository by the Bachelor of Public Administration team, documenting the resilience and lived experiences of BulSU nursing students.",
-    cta: "Meet the Researchers",
+      "Isang empirikal na hakbangin sa pananaliksik at digital repository ng koponan ng Bachelor of Public Administration, na nagtatala ng katatagan at mga karanasan ng mga mag-aaral ng nars sa BulSU",
+    cta: "Meet the Rese archers",
   },
 ];
 
