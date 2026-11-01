@@ -47,7 +47,7 @@ const routes = [
     meta: { title: "Loading Article - TatakCON" },
   },
   // --- Admin Portal Routes ---
-  /*
+
   {
     path: "/admin/login",
     name: "admin-login",
@@ -77,7 +77,7 @@ const routes = [
     name: "admin-edit",
     component: () => import("../views/admin/EditView.vue"),
     meta: { requiresAuth: true, title: "Edit Article - TatakCON" },
-  },*/
+  },
   {
     path: "/:pathMatch(.*)",
     name: "not-found",
