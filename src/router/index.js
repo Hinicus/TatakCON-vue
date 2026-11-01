@@ -46,8 +46,13 @@ const routes = [
     component: () => import("../views/ArticleView.vue"),
     meta: { title: "Loading Article - TatakCON" },
   },
+  {
+    path: "/faculty",
+    name: "faculty",
+    component: () => import("../views/FacultyView.vue"),
+    meta: { title: "Faculty & Administration - TatakCON" },
+  },
   // --- Admin Portal Routes ---
-
   {
     path: "/admin/login",
     name: "admin-login",

@@ -200,7 +200,7 @@ const navItems = [
   { label: "Our Story", to: "/our-story" },
   { label: "CON Community", to: "/con-community" },
   { label: "Traditions & Culture", to: "/traditions-culture" },
-  { label: "What We Carry", to: "#", comingSoon: true },
+  { label: "Faculty", to: "/faculty" },
   { label: "About", to: "/about" },
 ];
 
